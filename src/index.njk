@@ -1,0 +1,12 @@
+---
+title: HOMEPAGE
+---
+
+<p>{{ site.baseUrl }}</p>
+
+{% for post in collections.pages %}
+  {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(site.baseUrl) }}{% endset %}
+  <article>
+    {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
+  </article>
+{% endfor %}
